@@ -23,7 +23,7 @@ protected:
 private:
     std::string klass_;
     std::string name_;
-    bool failed_ = false;
+    bool failed_;
     std::string failDescription_;
 };
 

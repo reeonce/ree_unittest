@@ -8,9 +8,3 @@ set(REE_UNITTEST_SRC
 )
 add_library(ree_unittest ${REE_UNITTEST_SRC})
 target_include_directories(ree_unittest PUBLIC src)
-
-set_target_properties(ree_unittest PROPERTIES
-    CMAKE_CXX_STANDARD 11
-    CMAKE_CXX_STANDARD_REQUIRED ON
-    CMAKE_CXX_EXTENSIONS OFF
-)

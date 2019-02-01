@@ -7,7 +7,8 @@
 namespace ree {
 UnitTestFunc::UnitTestFunc(const std::string &klass, const std::string &name)
     : klass_(klass),
-      name_(name) {
+      name_(name),
+      failed_(false) {
 }
 std::string UnitTestFunc::Klass() const {
     return klass_;
@@ -58,7 +59,9 @@ void UnitTestImpl::Init(int argc, const char **argv) {
 }
 
 void UnitTestImpl::RunAllTests() {
-    for (auto &func: funcs_) {
+    for (std::vector<UnitTestFunc *>::iterator it = funcs_.begin();
+        it != funcs_.end(); ++it) {
+        UnitTestFunc *func = *it;
         func->Run();
         std::cout << func->Description() << std::endl;
     }
