@@ -47,7 +47,7 @@ private:
 #define R_TEST_F(klass, name) \
     class name##UnitTestFunc : public ree::UnitTestFunc {\
 name##UnitTestFunc() : UnitTestFunc(#klass, #name) {\
-            UnitTest::Instance().RegisterFunc(this);\
+            ree::UnitTest::Instance().RegisterFunc(this);\
         }\
         void Run() override;\
         static name##UnitTestFunc instance_;\
