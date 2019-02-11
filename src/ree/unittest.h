@@ -45,15 +45,15 @@ private:
 }
 
 #define R_TEST_F(klass, name) \
-    class name##UnitTestFunc : public ree::UnitTestFunc {\
-name##UnitTestFunc() : UnitTestFunc(#klass, #name) {\
+    class klass##name##UnitTestFunc : public ree::UnitTestFunc {\
+        klass##name##UnitTestFunc() : UnitTestFunc(#klass, #name) {\
             ree::UnitTest::Instance().RegisterFunc(this);\
         }\
         void Run() override;\
-        static name##UnitTestFunc instance_;\
+        static klass##name##UnitTestFunc instance_;\
     };\
-    name##UnitTestFunc name##UnitTestFunc::instance_;\
-    void name##UnitTestFunc::Run()
+    klass##name##UnitTestFunc klass##name##UnitTestFunc::instance_;\
+    void klass##name##UnitTestFunc::Run()
 
 #define R_RUN_TESTS() \
     ree::UnitTest::Instance().RunAllTests()

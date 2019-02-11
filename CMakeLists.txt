@@ -8,3 +8,4 @@ set(REE_UNITTEST_SRC
 )
 add_library(ree_unittest ${REE_UNITTEST_SRC})
 target_include_directories(ree_unittest PUBLIC src)
+target_compile_features(ree_unittest PUBLIC cxx_std_11)
