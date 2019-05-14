@@ -4,6 +4,31 @@
 #include <vector>
 #include <chrono>
 
+#define REETOSTRING_IMPL(T) \
+template<> std::string reeToString(const T t) { \
+    return std::to_string(t); \
+}
+
+REETOSTRING_IMPL(char)
+REETOSTRING_IMPL(unsigned char)
+REETOSTRING_IMPL(short)
+REETOSTRING_IMPL(unsigned short)
+REETOSTRING_IMPL(int)
+REETOSTRING_IMPL(unsigned int)
+REETOSTRING_IMPL(long)
+REETOSTRING_IMPL(unsigned long)
+REETOSTRING_IMPL(long long)
+REETOSTRING_IMPL(unsigned long long)
+REETOSTRING_IMPL(float)
+REETOSTRING_IMPL(double)
+
+template<> std::string reeToString(const char *t) {
+    return std::string(t);
+}
+template<> std::string reeToString(const std::string t) {
+    return t;
+}
+
 namespace ree {
 UnitTestFunc::UnitTestFunc(const std::string &klass, const std::string &name)
     : klass_(klass),

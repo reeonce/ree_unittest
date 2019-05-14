@@ -3,9 +3,7 @@
 #include <string>
 
 
-template<typename T> std::string reeToString(T t) {
-    return std::to_string(t);
-}
+template<typename T> std::string reeToString(const T t);
 
 namespace ree {
 
